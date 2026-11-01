@@ -1,0 +1,7 @@
+{
+  "name": "Remix: بوصلة",
+  "description": "SaaS Sales Management Application with Agency Marketing",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.cdnfonts.com/css/mostaqbali');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-mostaqbali: "Mostaqbali", sans-serif;
+  --color-brand-primary: #1ea855;
+  --color-brand-dark: #2c614f;
+  --color-brand-surface: #3d7561;
+  --color-brand-accent: #e5a83b;
+  --color-brand-light: #fef9e7;
+}
+
+@layer utilities {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media print {
+  body > *:not(#print-container) {
+    display: none !important;
+  }
+  #print-container {
+    display: block !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+  }
+  @page {
+    margin: 0;
+    size: auto;
+  }
+}
+
+html, body {
+  font-family: "Cairo", sans-serif;
+}

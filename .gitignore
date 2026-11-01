@@ -1,0 +1,17 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Android build outputs & caches
+android/app/build/
+android/.gradle/
+android/build/
+android/local.properties
+android/.idea/
+*.iml
+

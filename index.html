@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#1ea855" />
+    <meta name="description" content="تطبيق ذكي لإدارة المبيعات والديون" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/icon.svg" />
+    <title>بوصلة</title>
+  </head>
+  <body>
+    <div id="root">
+      <style>
+        .initial-loader { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; background-color: #f9fafb; font-family: system-ui, -apple-system, sans-serif; direction: rtl; }
+        .initial-loader.dark { background-color: #030712; }
+        .spinner { width: 44px; height: 44px; animation: spin 1s linear infinite; color: #1ea855; margin-bottom: 20px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .logo-text { font-size: 24px; font-weight: bold; color: #1ea855; }
+        @media (prefers-color-scheme: dark) {
+          .initial-loader { background-color: #030712; }
+        }
+      </style>
+      <div class="initial-loader" id="pwa-loader">
+        <svg class="spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle style="opacity: 0.2;" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path style="opacity: 0.8;" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <div class="logo-text">بوصلة</div>
+      </div>
+      <script>
+        try {
+          if (localStorage.getItem('target-theme') === 'dark' || (!('target-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.getElementById('pwa-loader').classList.add('dark');
+            document.body.style.backgroundColor = '#030712';
+          }
+        } catch (e) {}
+      </script>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
